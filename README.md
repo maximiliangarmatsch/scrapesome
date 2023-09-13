@@ -1,2 +1,5 @@
 # scrapesome
-Scrape SoMe Data
+
+```bash
+$ python main.py <username> <password>
+```
