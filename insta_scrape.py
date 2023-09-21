@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 import time
 
-waiting_seconds = 4
+WAITING_SECONDS = 4
 
 '''
     Sets cookie settings based on cookies_allowed parameter.
@@ -10,7 +10,7 @@ waiting_seconds = 4
 
 def handle_cookie_banner(driver, cookies_allowed=1):
     print('handle cookie banner..')
-    time.sleep(waiting_seconds)
+    time.sleep(WAITING_SECONDS)
     button_class = '_a9--'
     allow_cookies_button_class = '_a9_0'
     decline_cookies_button_class = '_a9_1'
@@ -30,7 +30,7 @@ def handle_cookie_banner(driver, cookies_allowed=1):
 
 def login(driver, username, password):
     print('login with user: ' + username + '..')
-    time.sleep(waiting_seconds)
+    time.sleep(WAITING_SECONDS)
     username_input = driver.find_element(By.NAME, 'username')
     password_input = driver.find_element(By.NAME, 'password')
     submit_login = driver.find_element(By.CSS_SELECTOR, 'button._acan._acap._acas._aj1-')
