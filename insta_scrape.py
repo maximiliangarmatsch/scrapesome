@@ -3,20 +3,29 @@ import time
 
 waiting_seconds = 4
 
+'''
+    Sets cookie settings based on cookies_allowed parameter.
+'''
 
-def handle_cookiebanner(driver, allow_cookies=1):
+
+def handle_cookie_banner(driver, cookies_allowed=1):
     print('handle cookie banner..')
     time.sleep(waiting_seconds)
     button_class = '_a9--'
     allow_cookies_button_class = '_a9_0'
     decline_cookies_button_class = '_a9_1'
-    if allow_cookies:
+    if cookies_allowed:
         button_selector = 'button.' + button_class + '.' + allow_cookies_button_class
     else:
         button_selector = 'button.' + button_class + '.' + decline_cookies_button_class
     button = driver.find_element(By.CSS_SELECTOR, button_selector)
     button.click()
     pass
+
+
+'''
+    Pastes passed username and password into login form and submits.
+'''
 
 
 def login(driver, username, password):
@@ -30,6 +39,13 @@ def login(driver, username, password):
     submit_login.click()
 
 
+'''
+    Closing modal.
+    
+    TODO: pass choice
+'''
+
+
 def close_saving_login_modal(driver):
     print('Close saving login info modal..')
     time.sleep(20)
@@ -37,11 +53,25 @@ def close_saving_login_modal(driver):
     not_now_button.click()
 
 
+'''
+    Closing modal.
+
+    TODO: pass choice
+'''
+
+
 def close_notification_modal(driver):
     print('Close notification on/off modal..')
     time.sleep(20)
     not_now_button = driver.find_element(By.CSS_SELECTOR, '._a9--._a9_1')
     not_now_button.click()
+
+
+'''
+    Opens the Follower modal while browsing user site.
+    
+    TODO: Check if you are on a user site (check uri)
+'''
 
 
 def open_follower_modal(driver):
